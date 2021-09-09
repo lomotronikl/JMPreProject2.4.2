@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.springframework.org/security/tags">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,5 +13,13 @@
         <h1 th:text="${msg}"></h1>
     </th:block>
 </div>
+
+
+<span sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</span>
+
 </body>
 </html>
